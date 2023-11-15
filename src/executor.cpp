@@ -61,7 +61,26 @@ string Executor::processarLinha(string linha) {
     nome = restoDe(buf);
     return sistema->create_concessionaria(nome);
   }
-
+  //função para adicionar os carros
+   else if (nomeComando == "add-car")  
+    {
+      string nome = restoDe(buf);
+      return sistema->add_car(nome);
+    }
+//função para adicionar os caminhões
+    else if (nomeComando == "add-truck")
+    {
+      string nome = restoDe(buf);
+      return sistema->add_truck(nome);
+    }
+    //função para adicionar as motos
+    else if (nomeComando == "add-bike")
+    {
+      string nome = restoDe(buf);
+      return sistema->add_moto(nome);
+    }    	
+    
+    
   return "Erro";	
 }
 
