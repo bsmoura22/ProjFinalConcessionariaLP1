@@ -12,13 +12,16 @@ class Executor {
   Sistema * sistema;
   stringstream ss;
   bool sair = false;
-
+  vector<string> palavras; 
+  
   public:
   Executor(Sistema &sistema);
 
   void iniciar(istream &in, ostream &out);
 
   string processarLinha(string linha);
+
+  vector<string> quebra_str(string str, const char* op);
 };
 
 #endif

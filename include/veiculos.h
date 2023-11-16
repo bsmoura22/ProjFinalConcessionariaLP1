@@ -8,7 +8,7 @@ using namespace std;
 using std::string;
 
 // Definição da classe Concessionária
-class  {
+class Veiculos {
    protected:
       string marca;
       double preco;

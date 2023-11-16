@@ -1,5 +1,5 @@
 #include "automoveis.h"
-
+using namespace std;
 
 Automoveis::Automoveis(string t_m, string marca, double preco, string chassi, int fabricacao) //construtor do novo carro
 {

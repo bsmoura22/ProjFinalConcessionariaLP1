@@ -13,7 +13,7 @@ using namespace std;
 // Sistema deve concentrar todas as operações
 class Sistema {
   private:
-        std::vector<string> dados;
+        std::vector<std::string> dados;
 		std::vector<Concessionaria> concessionarias; //um vetor com todos as concessionarias
   public:
 
@@ -26,13 +26,13 @@ class Sistema {
 			@param nome o nome da concessionaria
 			@return uma string contendo uma mensagem de erro ou "Concessionaria Criada"
 		*/
-		string create_concessionaria (const string nome);
+		std::string create_concessionaria (const string nome);
 
 		vector<Concessionaria> &getConcessionaria();
 		void setConcessionaria(Concessionaria concessionaria);
 
 		//CRIA NOVA CONCESSIONARIA
-		string create_concessionaria (const string nome);
+		//string create_concessionaria (const string nome);
 
 		//ADICIONA NOVOS VEICULOS
 		string add_car (const string nome);	

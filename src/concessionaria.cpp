@@ -1,5 +1,5 @@
 #include "concessionaria.h"
-
+using namespace std;
 
 Concessionaria::Concessionaria(string n, string cn, int e) // Construtor da concessionária
 {

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Automoveis : public Veiculo //herança
+class Automoveis : public Veiculos //herança
 {
     protected:
         string tipo_de_motor; //atributo unico do carro

@@ -9,7 +9,7 @@
 using std::string;
 
 // Definição da classe Concessionária
-class concessionaria {
+class Concessionaria {
    protected:
       string nome;
       string cnpj;
