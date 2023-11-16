@@ -28,24 +28,19 @@ string Sistema::create_concessionaria (const string nome) {
     return "create_concessionaria";
 }
 
+/* Função de acesso (get) e edição (set) ao vector de concessionárias*/
 
-//FUNÇÃO DE ACESSO AS CONCESSIONARIAS
-//Retorna: o vetor de concessionaria
 vector<Concessionaria> &Sistema::getConcessionaria()
 {
     return concessionarias;
 }
 
-//ADICIONA AO VETOR DE CONCESSIONARIA
-//Recebe: novo obj. do tipo concessionaria
 void Sistema::setConcessionaria(Concessionaria concessionaria)
 {
     concessionarias.push_back(concessionaria);
 }
 
-//QUEBRA A STRING ADD CADA PARTE EM UMA POSIÇÃO DO VETOR
-//Recebe: string que deverá se quebrada e operador para quebra
-//Retorna: um vetor com todos os dados da string
+//Criação da função que quebra a string em trechos e os coloca em vetor
 vector<string> Sistema::quebra_string(string str, const char* op) 
 {
     vector<string> p;
@@ -69,10 +64,7 @@ vector<string> Sistema::quebra_string(string str, const char* op)
     return p;  
 }
 
-
-//ADICIONA UM NOVO CARRO
-//Recebe os dados do novo carro
-//Retorna: mensagem se a operação foi bem sucedida ou não
+/* Funções para adicionar os veiculos em seus respectivos vector a partir*/
 string Sistema::add_car(const string nome)
 {
     dados = quebra_string(nome, " ");
