@@ -1,7 +1,7 @@
 #include "automoveis.h"
 
 
-Automoveis::Automoveis(string t_m, string marca, double preco, double chassi, int fabricacao) //construtor do novo carro
+Automoveis::Automoveis(string t_m, string marca, double preco, string chassi, int fabricacao) //construtor do novo carro
 {
     setTipo_motor(t_m);
     setMarca(marca);

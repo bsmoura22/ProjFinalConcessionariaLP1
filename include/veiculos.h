@@ -12,7 +12,7 @@ class  {
    protected:
       string marca;
       double preco;
-      double chassi;
+      string chassi;
       int fabricacao;
       // atributos 
    public:      
@@ -25,7 +25,7 @@ class  {
         void setPreco(double p);
         //Acesso a chassi 
         string getChassi();
-        void setChassi(double c); 
+        void setChassi(string c); 
         //Acesso ao ano de fabricação
         int getFabricacao();
         void setFabricacao(int f);

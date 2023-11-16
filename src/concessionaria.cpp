@@ -7,88 +7,147 @@ Concessionaria::Concessionaria(string n, string cn, int e) // Construtor da conc
     setCnpj(cn);
     setEstoque(e);
 }
+ 
+ /*Funções de acesso (get) e edição (set) de cada vetor de veículo. 
+ O acesso retorna o vetor de cada um (v_carro, v_cam, v_moto), 
+ já a edição é responsável por adicionar um novo veículo em cada vetor com a função de vector "push_back".*/
 
-//FUNÇÃO DE ACESSO AOS AUTOMOVEIS
-//Retorna: vetor de automoveis
 vector<Automoveis> &Concessionaria::getAutomoveis()
 {
     return v_carro;
 }
 
-//FUNÇÃO DE EDIÇÃO DE AUTOMOVEIS
-//Adiciona um novo automovel ao vetor
 void Concessionaria::setAutomoveis(Automoveis automoveis)
 {
-    v_car.push_back(automoveis);
+    v_carro.push_back(automoveis);
 }   
 
-//FUNÇÃO DE ACESSO AOS CAMINHOES
-//Retorna: vetor de caminhoes
-vector<Caminhao> &Concessionaria::getCaminhao()
+vector<Caminhoes> &Concessionaria::getCaminhoes()
 {
     return v_cam;
 }
 
-//FUNÇÃO DE EDIÇÃO DE CAMINHOES
-//Adiciona um novo caminhão ao vetor
-void Concessionaria::setCaminhao(Caminhao caminhao)
+void Concessionaria::setCaminhoes(Caminhoes caminhoes)
 {
-    v_cam.push_back(caminhao);
+    v_cam.push_back(caminhoes);
 } 
 
-//FUNÇÃO DE ACESSO AS MOTOS
-//Retorna: vetor de motos
-vector<Moto> &Concessionaria::getMoto()
+vector<Motos> &Concessionaria::getMotos()
 {
     return v_moto;
 }
 
-//FUNÇÃO DE EDIÇÃO DE MOTOS
-//Adiciona uma nova moto ao vetor
-void Concessionaria::setMoto(Moto moto)
+void Concessionaria::setMotos(Motos motos)
 {
-    v_moto.push_back(moto);
+    v_moto.push_back(motos);
 }   
 
-//FUNÇÃO DE ACESSO AO NOME DA CONCESSIONARIA
-//Retorna: nome da concessionaria
+/*Assim como o acesso e edição dos vetores de automoveis, motos e caminhões, 
+há o acesso (get) e edição (set) de cada atributo da concessionária, 
+como Nome, CNPJ, e estoque.
+*/
+
 string Concessionaria::getNome()
 {
     return nome;
 }
 
-//FUNÇÃO DE EDIÇÃO DO NOME DA CONCESSIONARIA
-//Edita o nome da concessionaria
 void Concessionaria::setNome(string n)
 {
     nome = n;
 }
 
-//FUNÇÃO DE ACESSO AO CNPJ DA CONCESSIONARIA
-//Retorna: cnpj da concessionaria
 string Concessionaria::getCnpj()
 {
     return CNPJ;
 }
 
-//FUNÇÃO DE EDIÇÃO DE CNPJ DA CONCESSIONARIA
-//Edita o cnpj da concessionaria
 void Concessionaria::setCnpj(string cn)
 {
     CNPJ = cn;
 }
 
-//FUNÇÃO DE ACESSO AO ESTOQUE
-//Retorna: quantidade de veiculos no estoque
 int Concessionaria::getEstoque()
 {
     return estoque;
 }
 
-//FUNÇÃO DE EDIÇÃO DE ESTOQUE DA CONCESSIONARIA
-//Altera o valor de veiculos no estoque
 void Concessionaria::setEstoque(int e)
 {
     estoque = e;
 }
 
+/* Por estar utilizando vector é importante lidar com a posição de cada objeto dentro dele,
+portanto, implementei a função index de cada tipo de veiculo para retornar a posição
+do mesmo dentro do seu respectivo vetor, assim é possível usar essa informação na remoção de veículos 
+e futuramente na busca. Recebendo a string do Chassi e retornando o indice.
+*/
+
+int Concessionaria::indexCar(string chassi)
+{
+    auto it = find_if(getAutomoveis().begin(), getAutomoveis().end(), [&chassi] (Automoveis &car) {return car.getChassi() == chassi;});
+
+    if (it != getAutomoveis().end())
+    {
+        auto index = distance(getAutomoveis().begin(), it);
+        return index;
+    }
+
+    else
+    {
+        return -1;
+    }
+}
+
+int Concessionaria::indexTruck(string chassi)
+{
+    auto it = find_if(getCaminhoes().begin(), getCaminhoes().end(), [&chassi] (Caminhoes &truck) {return truck.getChassi() == chassi;});
+
+    if (it != getCaminhoes().end())
+    {
+        auto index = distance(getCaminhoes().begin(), it);
+        return index;
+    }
+
+    else
+    {
+        return -1;
+    }
+    
+}
+
+int Concessionaria::indexMoto(string chassi)
+{
+    auto it = find_if(getMotos().begin(), getMotos().end(), [&chassi] (Motos &motos) {return motos.getChassi() == chassi;});
+
+    if (it != getMotos().end())
+    {
+        auto index = distance(getMotos().begin(), it);
+        return index;
+    }
+
+    else
+    {
+        return -1;
+    }
+    
+}
+bool Concessionaria::remove_vehicle(string chassi) //Função de remoção do veículo em seu respectivo vetor, recebendo a string do chassi.
+{
+    if(indexCar(chassi) != -1)
+    {
+        getAutomoveis().erase(getAutomoveis().begin() + indexCar(chassi));
+    }
+
+    else if (indexTruck(chassi) != -1)
+    {
+        getCaminhoes().erase(getCaminhoes().begin() + indexTruck(chassi));
+    }
+
+    else if (indexMoto(chassi) != -1)
+    {
+        getMotos().erase(getMotos().begin() + indexMoto(chassi));
+    }
+
+    return false;  
+}

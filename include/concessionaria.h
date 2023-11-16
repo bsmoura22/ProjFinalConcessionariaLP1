@@ -4,8 +4,8 @@
 #include <algorithm>
 #include "veiculos.h"
 #include "automoveis.h"
-#include "moto.h"
-#include "caminhao.h"
+#include "motos.h"
+#include "caminhoes.h"
 using std::string;
 
 // Definição da classe Concessionária
@@ -16,8 +16,8 @@ class concessionaria {
       int estoque;
 
       vector<Automoveis> v_carro;
-      vector<Caminhao> v_cam;
-      vector<Moto> v_moto;
+      vector<Caminhoes> v_cam;
+      vector<Motos> v_moto;
       // atributos 
    public:      
         Concessionaria (string n, string cn, int e); //construtor
@@ -26,11 +26,11 @@ class concessionaria {
         vector<Automoveis> &getAutomoveis(); 
         void setAutomoveis(Automoveis automoveis);        
         
-        vector<Caminhao> &getCaminhao();
-        void setCaminhao(Caminhao caminhao); 
+        vector<Caminhoes> &getCaminhoes();
+        void setCaminhoes(Caminhoes caminhoes); 
 
-        vector<Moto> &getMoto();
-        void setMoto(Moto moto);   
+        vector<Motos> &getMotos();
+        void setMotos(Motos motos);   
 
         string getNome(); //Acesso ao nome da concessionária
         void setNome(string n);
@@ -40,8 +40,18 @@ class concessionaria {
        
         int getEstoque();//Acesso ao estoque
         void setEstoque(int e);
+       
+        /*Por estar usando vetor, para fazer a localização 
+        e/ou remoção de cada veiculo é necessário utilizar a posição do mesmo no vetor, 
+        por isso a função para localizar o indice/index*/
+        int indexCar(string chassi);
+        int indexTruck(string chassi);
+        int indexMoto(string chassi);
 
-        bool remove_vehicle(double chassi); //função para remover veiculo pelo chassi
+        
+        bool search_vehicle(string chassi); //função para remover veiculo pelo chassi
+
+        bool remove_vehicle(string chassi); //função para remover veiculo pelo chassi
 };
 
 #endif

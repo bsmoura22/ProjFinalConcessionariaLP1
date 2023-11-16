@@ -11,7 +11,7 @@ class Moto : public Veiculo//herança
         string modelo;//atributo unico da moto
         
     public:
-        Moto(string mo, string marca, double preco, double chassi, int fabricacao);//construtor
+        Moto(string mo, string marca, double preco, string chassi, int fabricacao);//construtor
         //Acesso modelo
         string getModelo();
         void setModelo(string mo);

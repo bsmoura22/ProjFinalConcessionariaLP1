@@ -12,7 +12,7 @@ class Caminhao : public Veiculo //herança
         string tipo_de_carga; //atributo unico do caminhão
         
     public:
-        Caminhao(string carga, string marca, double preco, double chassi, int fabricacao); //construtor
+        Caminhao(string carga, string marca, double preco, string chassi, int fabricacao); //construtor
 
         //Acesso tipo de carga
         string getTipo_Carga();

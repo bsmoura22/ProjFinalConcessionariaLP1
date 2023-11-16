@@ -8,12 +8,12 @@ Veiculo::Veiculo() //construtor sem parametros (classe "pai")
     setFabricacao(0);
 }
 
-double Veiculo::getChassi() //acesso ao parametro chassi
+string Veiculo::getChassi() //acesso ao parametro chassi
 {
     return chassi;
 }
 
-void Veiculo::setChassi(double c) //função que dita o chassi
+void Veiculo::setChassi(string c) //função que dita o chassi
 {
     chassi = c;
 }
