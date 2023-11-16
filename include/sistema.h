@@ -31,24 +31,19 @@ class Sistema {
 		vector<Concessionaria> &getConcessionaria();
 		void setConcessionaria(Concessionaria concessionaria);
 
-		//CRIA NOVA CONCESSIONARIA
-		//string create_concessionaria (const string nome);
-
-		//ADICIONA NOVOS VEICULOS
+		
+		//Cria os novos veículos
 		string add_car (const string nome);	
 		string add_truck (const string nome);	
 		string add_moto (const string nome);
 
-		string search_vehicle(const string chassi); 
-		
-		//REMOVE VEICULO DO VETOR
-		string remove_vehicle(const string chassi);
+		string search_vehicle(const string chassi);  //busca o veiculo de acordo com o chassi
 
-		//PESQUISA CONCESSIONARIA EM VETOR DE CONCESSIONARIAS
-		int search_concessionaria(const string nome);
+		string remove_vehicle(const string chassi); //remove o veículo de seu respectivo vector de acordo com o chassi
 
-		//QUEBRA LINHA EM VETOR DE STRINGS
-		vector<string> quebra_string(string str, const char* op);
+		int search_concessionaria(const string nome); //verifica a existencia da concessionária
+
+		vector<string> quebra_string(string str, const char* op); //quebra a string recebida em dados
 };
 
 #endif

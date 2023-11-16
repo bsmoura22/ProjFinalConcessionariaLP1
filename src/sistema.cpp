@@ -94,9 +94,6 @@ string Sistema::add_car(const string nome)
 
 }
 
-//ADICIONA UM NOVO CAMINHAO
-//Recebe os dados do novo caminhão
-//Retorna: mensagem se a operação foi bem sucedida ou não
 string Sistema::add_truck(const string nome)
 {
     dados = quebra_string(nome, " ");
@@ -125,9 +122,6 @@ string Sistema::add_truck(const string nome)
       
 }
 
-//ADICIONA UMA NOVA MOTO
-//Recebe: os dados da nova moto
-//Retorna: mensagem se a operação foi bem sucedida ou não
 string Sistema::add_moto(const string nome)
 {
     dados = quebra_string(nome, " ");
@@ -155,7 +149,7 @@ string Sistema::add_moto(const string nome)
     return "ERRO add-bike";
 }
 
-string Sistema::search_vehicle(const string chassi)
+string Sistema::search_vehicle(const string chassi) //Função de busca do veículo na concessionaria
 {
     for (int i = 0; i < (int) getConcessionaria().size(); i++)
     {
@@ -168,7 +162,7 @@ string Sistema::search_vehicle(const string chassi)
     return "Veiculo nao encontrado\n";
 }
 
-string Sistema::remove_vehicle(const string chassi)
+string Sistema::remove_vehicle(const string chassi) //Remoção do veículo do seu respectivo vector
 {
     for (int i = 0; i < (int) getConcessionaria().size(); i++)
     {
@@ -182,10 +176,7 @@ string Sistema::remove_vehicle(const string chassi)
     return "Veiculo nao encontrado\n";
 }
 
-//PESQUISA A CONCESSIONARIA
-//Recebe: o nome da concessionaria
-//Retorna: indice que a concessionaria se encontra no vetor
-int Sistema::search_concessionaria(const string nome)
+int Sistema::search_concessionaria(const string nome) //Verifica a existencia da concessionária
 {
     for (int i = 0; i < (int)getConcessionaria().size(); i++)
     {
