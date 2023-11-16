@@ -84,7 +84,7 @@ string Sistema::add_car(const string nome)
 
     if (concessionarias[i].getNome() == dados[0])
     {      
-      Automoveis car(dados[5], dados[2], dados[1], stof(dados[3]), stoi(dados[4]));
+      Automoveis car(dados[5], dados[2], dados[1], dados[3], dados[4]);
       concessionarias[i].setAutomoveis(car);
       concessionarias[i].setEstoque(concessionarias[i].getEstoque() + 1);
       return "add-car";
@@ -115,7 +115,7 @@ string Sistema::add_truck(const string nome)
 
     if (concessionarias[i].getNome() == dados[0])
     {
-      Caminhoes truck(dados[5], dados[2], dados[1], stof(dados[3]), stoi(dados[4]));
+      Caminhoes truck(dados[5], dados[2], dados[1], dados[3], dados[4]);
       concessionarias[i].setCaminhoes(truck);
       concessionarias[i].setEstoque(concessionarias[i].getEstoque() + 1);
       return "add-truck";
@@ -146,7 +146,7 @@ string Sistema::add_moto(const string nome)
 
     if (concessionarias[i].getNome() == dados[0])
     {
-      Motos motos(dados[5], dados[2], dados[1], stof(dados[3]), stoi(dados[4]));
+      Motos motos(dados[5], dados[2], dados[1], dados[3], dados[4]);
       concessionarias[i].setMotos(motos);
       concessionarias[i].setEstoque(concessionarias[i].getEstoque() + 1);
       return "add-bike";
@@ -155,7 +155,18 @@ string Sistema::add_moto(const string nome)
     return "ERRO add-bike";
 }
 
-
+string Sistema::search_vehicle(const string chassi)
+{
+    for (int i = 0; i < (int) getConcessionaria().size(); i++)
+    {
+      if(getConcessionaria().at(i).search_vehicle(chassi))
+      {
+        cout << "CONCESSIONARIA: " << getConcessionaria().at(i).getNome() << endl;
+        return " ";
+      }
+    }
+    return "Veiculo nao encontrado\n";
+}
 
 string Sistema::remove_vehicle(const string chassi)
 {

@@ -1,7 +1,7 @@
 #include "caminhoes.h"
 using namespace std;
 
-Caminhao::Caminhao(string tipo_carga, string marca, double preco, string chassi, int fabricacao) //Construtor do caminhão
+Caminhao::Caminhao(string tipo_carga, string marca, int preco, string chassi, int fabricacao) //Construtor do caminhão
 {
     setTipo_Carga(tipo_carga);
     setChassi(chassi);

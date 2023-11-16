@@ -1,6 +1,6 @@
 #include "motos.h"
 
-Moto::Moto(string mo, string marca, double preco, string chassi, int fabricacao) //Construtor da moto
+Motos::Motos(string mo, string marca, int preco, string chassi, int fabricacao) //Construtor da moto
 {
     setModelo(mo);
     setChassi(chassi);
@@ -10,17 +10,17 @@ Moto::Moto(string mo, string marca, double preco, string chassi, int fabricacao)
     
 }
 
-string Moto::getModelo() //acesso ao modelo (atributo unico da moto)
+string Motos::getModelo() //acesso ao modelo (atributo unico da moto)
 {
     return modelo;
 }
 
-void Moto::setModelo(string m) //edição do modelo da moto
+void Motos::setModelo(string m) //edição do modelo da moto
 {
     modelo = m;
 }
 
-void Moto::print_Moto() 
+void Motos::print_Moto() 
 {
     cout << endl;
     cout << "MODELO: " << getModelo() << endl;

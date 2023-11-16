@@ -29,12 +29,12 @@ void Veiculos::setMarca(string m) //função que edita a marca do veiculo
     marca = m;
 }
 
-double Veiculos::getPreco() //acesso ao preço
+int Veiculos::getPreco() //acesso ao preço
 {
     return preco;
 }
 
-void Veiculos::setPreco(double p) //função que edita o preço
+void Veiculos::setPreco(int p) //função que edita o preço
 {
     preco = p;
 }

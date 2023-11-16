@@ -39,6 +39,8 @@ class Sistema {
 		string add_truck (const string nome);	
 		string add_moto (const string nome);
 
+		string search_vehicle(const string chassi); 
+		
 		//REMOVE VEICULO DO VETOR
 		string remove_vehicle(const string chassi);
 

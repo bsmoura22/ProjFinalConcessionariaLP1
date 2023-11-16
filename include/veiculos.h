@@ -11,7 +11,7 @@ using std::string;
 class Veiculos {
    protected:
       string marca;
-      double preco;
+      int preco;
       string chassi;
       int fabricacao;
       // atributos 
@@ -21,7 +21,7 @@ class Veiculos {
         string getMarca();
         void setMarca(string m);
         //Acesso ao preço do veiculo
-        double getPreco();
+        int getPreco();
         void setPreco(double p);
         //Acesso a chassi 
         string getChassi();
