@@ -8,42 +8,56 @@
 #include <sstream>
 #include <algorithm>
 #include <fstream>
+
 using namespace std;
 
-// Sistema deve concentrar todas as operações
 class Sistema {
   private:
-        std::vector<std::string> dados;
-		std::vector<Concessionaria> concessionarias; //um vetor com todos as concessionarias
+		vector<string> dados;
+		vector<Concessionaria> concessionarias;
+		
   public:
-
-		/*Encerra o funcionamento do programa.
-			@return uma string com a mensagem "Saindo.."
-		*/
+		//ENCERRA O PROGRAMA
 		string quit();
 
-		/* Cria uma concessionaria e retorna uma string de erro/sucesso 
-			@param nome o nome da concessionaria
-			@return uma string contendo uma mensagem de erro ou "Concessionaria Criada"
-		*/
-		std::string create_concessionaria (const string nome);
-
+		//ACESSO E EDIÇÃO DO VETOR DE CONCESSIONARIAS
 		vector<Concessionaria> &getConcessionaria();
 		void setConcessionaria(Concessionaria concessionaria);
 
-		
-		//Cria os novos veículos
+		//CRIA NOVA CONCESSIONARIA
+		string create_concessionaria (const string nome);
+
+		//ADICIONA NOVOS VEICULOS
 		string add_car (const string nome);	
 		string add_truck (const string nome);	
 		string add_moto (const string nome);
 
-		string search_vehicle(const string chassi);  //busca o veiculo de acordo com o chassi
+		//PESQUISA VEICULO NO VETOR
+		string search_vehicle(const string chassi);
 
-		string remove_vehicle(const string chassi); //remove o veículo de seu respectivo vector de acordo com o chassi
+		//REMOVE VEICULO DO VETOR
+		string remove_vehicle(const string chassi);
 
-		int search_concessionaria(const string nome); //verifica a existencia da concessionária
+		//LISTA FROTA DA CONCESSIONARIA
+		string list_concessionaria(const string nome);
 
-		vector<string> quebra_string(string str, const char* op); //quebra a string recebida em dados
+		//AUMENTA VALORES DOS VEICULOS
+		string raise_price(const string nome);
+
+		//APRESENTA DADOS DE ARQUIVO NA TELA
+		string load_concessionaria(const string nome);
+
+		//SALVA DADOS DE CONCESSIONARIA EM TXT
+		string save_concessionaria(const string nome);
+
+		//PESQUISA CONCESSIONARIA EM VETOR DE CONCESSIONARIAS
+		int search_concessionaria(const string nome);
+
+		//QUEBRA LINHA EM VETOR DE STRINGS
+		vector<string> quebra_string(string str, const char* op);
+
+		//IMPRIME CONCESSIONARIAS
+		void print_concessionaria();
 };
 
 #endif

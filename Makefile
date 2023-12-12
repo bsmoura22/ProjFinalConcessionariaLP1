@@ -1,7 +1,10 @@
 .DEFAULT_GOAL := all
 
+OBJECTS=build/sistema.o build/executor.o build/concessionaria.o build/veiculos.o build/automoveis.o build/motos.o build/caminhoes.o
+
+objects: $(OBJECTS)
 #quando adicionar uma nova dependencia não esqueça de atualizar aqui!
-OBJECTS=build/sistema.o build/executor.o
+
 build/programa.o: src/programa.cpp include/sistema.h include/executor.h 
 	g++ -c src/programa.cpp -o build/programa.o
 
@@ -37,10 +40,10 @@ build/motos.o: src/motos.cpp include/motos.h
 #build/concessionaria.o: src/concessionaria.cpp include/concessionaria.h
 #	g++ -Iinclude src/concessionaria.cpp -c
 
-objects: $(OBJECTS)
+
 
 programa: objects src/programa.cpp
-	g++ -Wall -fsanitize=address -Iinclude $(OBJECTS) src/programa.cpp -o bin/programa
+	g++ -Wall -fsanitize=address -Iinclude $(OBJECTS) src/programa.cpp -o build/programa
 
 clean:
 	rm build/*.o bin/programa

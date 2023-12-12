@@ -1,4 +1,6 @@
-#include "concessionaria.h"
+#include "../include/concessionaria.h"
+#include <iostream>
+#include <string>
 using namespace std;
 
 Concessionaria::Concessionaria(string n, string cn, int e) // Construtor da concessionária
@@ -14,12 +16,12 @@ Concessionaria::Concessionaria(string n, string cn, int e) // Construtor da conc
 
 vector<Automoveis> &Concessionaria::getAutomoveis()
 {
-    return v_carro;
+    return v_auto;
 }
 
 void Concessionaria::setAutomoveis(Automoveis automoveis)
 {
-    v_carro.push_back(automoveis);
+    v_auto.push_back(automoveis);
 }   
 
 vector<Caminhoes> &Concessionaria::getCaminhoes()
@@ -34,12 +36,12 @@ void Concessionaria::setCaminhoes(Caminhoes caminhoes)
 
 vector<Motos> &Concessionaria::getMotos()
 {
-    return v_moto;
+    return v_motos;
 }
 
 void Concessionaria::setMotos(Motos motos)
 {
-    v_moto.push_back(motos);
+    v_motos.push_back(motos);
 }   
 
 /*Assim como o acesso e edição dos vetores de automoveis, motos e caminhões, 
@@ -132,6 +134,33 @@ int Concessionaria::indexMoto(string chassi)
     }
     
 }
+
+bool Concessionaria::search_vehicle(string chassi)
+{
+    if(indexCar(chassi) != -1)
+    {
+        getAutomoveis().at(indexCar(chassi)).print_carro();
+        return true;
+    }
+
+    else if (indexTruck(chassi) != -1)
+    {
+        getCaminhoes().at(indexTruck(chassi)).print_Caminhoes();
+        return true;
+    }
+
+    else if (indexMoto(chassi) != -1)
+    {
+        getMotos().at(indexMoto(chassi)).print_Moto();
+        return true;
+    }
+
+    return false;
+}
+
+
+
+
 bool Concessionaria::remove_vehicle(string chassi) //Função de remoção do veículo em seu respectivo vetor, recebendo a string do chassi.
 {
     if(indexCar(chassi) != -1)

@@ -1,6 +1,6 @@
-#include "motos.h"
+#include "../include/motos.h"
 
-Motos::Motos(string mo, string marca, int preco, string chassi, int fabricacao) //Construtor da moto
+Motos::Motos(string mo, string chassi, string marca, double preco, int fabricacao) //Construtor da moto
 {
     setModelo(mo);
     setChassi(chassi);

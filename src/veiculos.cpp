@@ -1,22 +1,12 @@
-#include "veiculos.h"
+#include "../include/veiculos.h"
 using namespace std;
 
 Veiculos::Veiculos() //construtor sem parametros (classe "pai")
 {
-    setChassi("");
     setMarca("");
     setPreco(0);
+    setChassi("");
     setFabricacao(0);
-}
-
-string Veiculos::getChassi() //acesso ao parametro chassi
-{
-    return chassi;
-}
-
-void Veiculos::setChassi(string c) //função que dita o chassi
-{
-    chassi = c;
 }
 
 string Veiculos::getMarca() //acesso a marca
@@ -34,9 +24,19 @@ int Veiculos::getPreco() //acesso ao preço
     return preco;
 }
 
-void Veiculos::setPreco(int p) //função que edita o preço
+void Veiculos::setPreco(double p) //função que edita o preço
 {
     preco = p;
+}
+
+string Veiculos::getChassi() //acesso ao parametro chassi
+{
+    return chassi;
+}
+
+void Veiculos::setChassi(string c) //função que dita o chassi
+{
+    chassi = c;
 }
 
 int Veiculos::getFabricacao() //acesso ao ano de fabricação

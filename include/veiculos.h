@@ -11,7 +11,7 @@ using std::string;
 class Veiculos {
    protected:
       string marca;
-      int preco;
+      double preco;
       string chassi;
       int fabricacao;
       // atributos 

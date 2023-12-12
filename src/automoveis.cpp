@@ -1,13 +1,13 @@
-#include "automoveis.h"
+#include "../include/automoveis.h"
 using namespace std;
-
-Automoveis::Automoveis(string t_m, string marca, int preco, string chassi, int fabricacao) //construtor do novo carro
+using std::string;
+Automoveis::Automoveis(string t_m, string chassi, string marca, int preco, int fabricacao) //construtor do novo carro
 {
     setTipo_motor(t_m);
     setMarca(marca);
     setPreco(preco);
     setChassi(chassi);
-    setAno_Fabricacao(fabricacao);
+    setFabricacao(fabricacao);
 }
 
 string Automoveis::getTipo_motor()//acesso ao tipo de motor (atributo unico do carro)
