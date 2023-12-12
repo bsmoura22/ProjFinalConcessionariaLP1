@@ -29,6 +29,7 @@ class Veiculos {
         //Acesso ao ano de fabricação
         int getFabricacao();
         void setFabricacao(int f);
+        
 };
 
 #endif

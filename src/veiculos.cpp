@@ -1,5 +1,8 @@
 #include "../include/veiculos.h"
 using namespace std;
+using std::string;
+
+/*Uso de getters e setters para alterar e acessar as variaveis da classe.*/
 
 Veiculos::Veiculos() //construtor sem parametros (classe "pai")
 {

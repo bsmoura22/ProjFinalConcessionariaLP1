@@ -10,6 +10,7 @@
 #include <fstream>
 
 using namespace std;
+using std::string;
 
 class Sistema {
   private:
@@ -58,6 +59,7 @@ class Sistema {
 
 		//IMPRIME CONCESSIONARIAS
 		void print_concessionaria();
+
 };
 
 #endif

@@ -1,4 +1,8 @@
 #include "../include/motos.h"
+using namespace std;
+using std::string;
+
+/*Uso de getters e setters para alterar e acessar as variaveis da classe.*/
 
 Motos::Motos(string mo, string chassi, string marca, double preco, int fabricacao) //Construtor da moto
 {
@@ -20,7 +24,7 @@ void Motos::setModelo(string m) //edição do modelo da moto
     modelo = m;
 }
 
-void Motos::print_Moto() 
+void Motos::print_Moto() //Impressão final do modelo de cada moto
 {
     cout << endl;
     cout << "MODELO: " << getModelo() << endl;

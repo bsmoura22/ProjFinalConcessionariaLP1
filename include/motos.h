@@ -5,6 +5,7 @@
 
 using namespace std;
 using std::string;
+
 class Motos : public Veiculos//herança
 {
     protected:

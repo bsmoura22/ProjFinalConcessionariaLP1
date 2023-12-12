@@ -5,6 +5,7 @@
 
 using namespace std;
 using std::string;
+
 class Automoveis : public Veiculos //herança
 {
     protected:

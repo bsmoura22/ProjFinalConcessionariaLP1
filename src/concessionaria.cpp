@@ -2,6 +2,9 @@
 #include <iostream>
 #include <string>
 using namespace std;
+using std::string;
+
+/*Uso de getters e setters para alterar e acessar as variaveis da classe.*/
 
 Concessionaria::Concessionaria(string n, string cn, int e) // Construtor da concessionária
 {
@@ -135,6 +138,10 @@ int Concessionaria::indexMoto(string chassi)
     
 }
 
+/*Como explicado anteriormente, o uso de vector permite a utilização de index para localizar
+ a posição de cada objeto dentro do vector, essa função é utilizada nas funções de search e remove 
+ (busca e remoção) de veiculo, pois a partir da localização o objeto é encontrado/removido do vetor. */
+
 bool Concessionaria::search_vehicle(string chassi)
 {
     if(indexCar(chassi) != -1)
@@ -157,8 +164,6 @@ bool Concessionaria::search_vehicle(string chassi)
 
     return false;
 }
-
-
 
 
 bool Concessionaria::remove_vehicle(string chassi) //Função de remoção do veículo em seu respectivo vetor, recebendo a string do chassi.

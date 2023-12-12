@@ -6,6 +6,7 @@
 #include "executor.h"
 
 using namespace std;
+using std::string;
 
 int main() {
   // inicialização do sistema

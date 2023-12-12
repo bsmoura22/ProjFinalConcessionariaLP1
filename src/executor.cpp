@@ -1,6 +1,6 @@
 #include "../include/executor.h"
-
 using namespace std;
+using std::string;
 
 // Função de apoio que recebe um istringstream e
 // le todo texto restante até o fim da linha

@@ -5,15 +5,21 @@
 #include <algorithm>
 #include <string>
 
-//CHAMA A FUNÇÃO QUE ENCERRA O PROGRAMA
+using namespace std;
+using std::string;
+
+//Função padrão criada pelo professor para finalizar o programa
 string Sistema::quit() 
 {
     return "Saindo...";
 }
 
-//CHAMA A FUNÇÃO QUE CRIA A CONCESSIONARIA
-//Recebe: dados da nova concessionaria
-//Retorna: mensagem se a operação foi bem sucedida ou não
+
+
+/*Função para criar a concessionária implementada recebendo o comando em formato de string e quebrando 
+os dados em posições no vector dados criado para facilitar a organização e tratamento das linhas de código 
+recebidas no terminal.
+Retorna se a criação foi bem sucedida ou não. */
 string Sistema::create_concessionaria (const string nome) 
 {
     dados = quebra_string(nome, " ");
@@ -33,23 +39,20 @@ string Sistema::create_concessionaria (const string nome)
     return "create_concessionaria";
 }
 
-//FUNÇÃO DE ACESSO AS CONCESSIONARIAS
-//Retorna: o vetor de concessionaria
+/*Funções de Get e Set do vector de concessionárias para acessar e editar o vector criando 
+mais concessionárias e adicionando no vector de concessionárias*/
+
 vector<Concessionaria> &Sistema::getConcessionaria()
 {
     return concessionarias;
 }
 
-//ADICIONA AO VETOR DE CONCESSIONARIA
-//Recebe: novo obj. do tipo concessionaria
 void Sistema::setConcessionaria(Concessionaria concessionaria)
 {
     concessionarias.push_back(concessionaria);
 }
 
-//QUEBRA A STRING ADD CADA PARTE EM UMA POSIÇÃO DO VETOR
-//Recebe: string que deverá se quebrada e operador para quebra
-//Retorna: um vetor com todos os dados da string
+/*Função destinada a quebrar para quebrar a linha de string recebida.*/
 vector<string> Sistema::quebra_string(string str, const char* op) 
 {
     vector<string> p;
@@ -73,8 +76,7 @@ vector<string> Sistema::quebra_string(string str, const char* op)
     return p;  
 }
 
-//IMPRIME O VETOR DE CONCESSIONARIAS
-//Apresenta na tela todas as concessionarias
+/*Função criada para imprimir todas as concessionarias criadas e presentes no vector.*/
 void Sistema::print_concessionaria() 
 {
     for (int i = 0; i < (int)concessionarias.size(); i++)
@@ -85,9 +87,12 @@ void Sistema::print_concessionaria()
     } 
 }
 
-//ADICIONA UM NOVO CARRO
-//Recebe os dados do novo carro
-//Retorna: mensagem se a operação foi bem sucedida ou não
+/*Add_car é um dos requisitos solicitados no projeto para adicionar o carro/automovel 
+na concessionária.
+Para isso quebra linha de comando recebida no vector de dados
+Em seguida verifica com o numero de chassi se já foi adicionado
+se não foi, é adicionado.
+Se foi, retorna um aviso.*/
 string Sistema::add_car(const string nome)
 {
     dados = quebra_string(nome, " ");
@@ -109,7 +114,7 @@ string Sistema::add_car(const string nome)
     {      
       Automoveis car(dados[5], dados[2], dados[1], stof(dados[3]), stoi(dados[4]));
       concessionarias[i].setAutomoveis(car);
-      concessionarias[i].setEstoque(concessionarias[i].getEstoque() + 1);
+      concessionarias[i].setEstoque(concessionarias[i].getEstoque() + 1); //aumenta a quantidade no estoque
       return "add-car";
     }
     
@@ -117,9 +122,12 @@ string Sistema::add_car(const string nome)
 
 }
 
-//ADICIONA UM NOVO CAMINHAO
-//Recebe os dados do novo caminhão
-//Retorna: mensagem se a operação foi bem sucedida ou não
+/*Add_truck é um dos requisitos solicitados no projeto para adicionar o carro/automovel 
+na concessionária.
+Para isso quebra linha de comando recebida no vector de dados
+Em seguida verifica com o numero de chassi se já foi adicionado
+se não foi, é adicionado.
+Se foi, retorna um aviso.*/
 string Sistema::add_truck(const string nome)
 {
     dados = quebra_string(nome, " ");
@@ -140,7 +148,7 @@ string Sistema::add_truck(const string nome)
     {
       Caminhoes truck(dados[5], dados[2], dados[1], stof(dados[3]), stoi(dados[4]));
       concessionarias[i].setCaminhoes(truck);
-      concessionarias[i].setEstoque(concessionarias[i].getEstoque() + 1);
+      concessionarias[i].setEstoque(concessionarias[i].getEstoque() + 1);//adiciona a quantidade no estoque
       return "add-truck";
     }
       
@@ -148,9 +156,12 @@ string Sistema::add_truck(const string nome)
       
 }
 
-//ADICIONA UMA NOVA MOTO
-//Recebe: os dados da nova moto
-//Retorna: mensagem se a operação foi bem sucedida ou não
+/*Add_moto é um dos requisitos solicitados no projeto para adicionar o carro/automovel 
+na concessionária.
+Para isso quebra linha de comando recebida no vector de dados
+Em seguida verifica com o numero de chassi se já foi adicionado
+se não foi, é adicionado.
+Se foi, retorna um aviso.*/
 string Sistema::add_moto(const string nome)
 {
     dados = quebra_string(nome, " ");
@@ -169,18 +180,16 @@ string Sistema::add_moto(const string nome)
 
     if (concessionarias[i].getNome() == dados[0])
     {
-      Motos moto(dados[5], dados[2], dados[1], stof(dados[3]), stoi(dados[4]));
-      concessionarias[i].setMotos(moto);
-      concessionarias[i].setEstoque(concessionarias[i].getEstoque() + 1);
+      Motos motos(dados[5], dados[2], dados[1], stof(dados[3]), stoi(dados[4]));
+      concessionarias[i].setMotos(motos);
+      concessionarias[i].setEstoque(concessionarias[i].getEstoque() + 1);//adiciona na quantidade do estoque
       return "add-bike";
     }
 
     return "ERRO add-bike";
 }
 
-//PESQUISA O VEICULO
-//Recebe: o num. de chassi do veiculo que está sendo procurado
-//Retorna: dados do veiculo se encontrado
+/*Função destinada para busca do veiculo a partir do número de chassi no vector.*/
 string Sistema::search_vehicle(const string chassi)
 {
     for (int i = 0; i < (int) getConcessionaria().size(); i++)
@@ -194,9 +203,33 @@ string Sistema::search_vehicle(const string chassi)
     return "Veiculo nao encontrado\n";
 }
 
-//REMOVE O VEICULO 
-//Recebe: o num. de chassi do veiculo que será removido
-//Retorna: mensagem se a operação foi bem sucedida ou não
+/*Função destinada para conferir todos os veiculos adicionados.
+void Sistema::checkall_vehicle()
+{
+    for (int i = 0; i < (int) getConcessionaria().size(); i++)
+    {
+      cout << "CONCESSIONARIA: " << getConcessionaria().at(i).getNome() << endl;
+    }
+}
+*/ 
+
+/*Função criada a partir da pesquisa do nome da concessionária no 
+vector e então retornando sua posição*/
+int Sistema::search_concessionaria(const string nome)
+{
+    for (int i = 0; i < (int)getConcessionaria().size(); i++)
+    {
+      if (getConcessionaria()[i].getNome() == nome)
+      {
+        return i;
+      }
+    }
+    return -1;
+}
+
+
+/*A partir da pesquisa com a função Search_vehicle, executa a remoção do veículo com 
+seu número de chassi e em seguida diminui a quantidade no estoque.*/
 string Sistema::remove_vehicle(const string chassi)
 {
     for (int i = 0; i < (int) getConcessionaria().size(); i++)
@@ -211,20 +244,6 @@ string Sistema::remove_vehicle(const string chassi)
     return "Veiculo nao encontrado\n";
 }
 
-//PESQUISA A CONCESSIONARIA
-//Recebe: o nome da concessionaria
-//Retorna: indice que a concessionaria se encontra no vetor
-int Sistema::search_concessionaria(const string nome)
-{
-    for (int i = 0; i < (int)getConcessionaria().size(); i++)
-    {
-      if (getConcessionaria()[i].getNome() == nome)
-      {
-        return i;
-      }
-    }
-    return -1;
-}
 
 //LISTA FROTA DE CONCESSIONARIA
 //Recebe: nome da concessionaria que irá listar

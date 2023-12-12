@@ -1,5 +1,8 @@
 #include "../include/caminhoes.h"
 using namespace std;
+using std::string;
+
+/*Uso de getters e setters para alterar e acessar as variaveis da classe.*/
 
 Caminhoes::Caminhoes(string tipo_carga, string chassi, string marca, double preco, int fabricacao) //Construtor do caminhão
 {
