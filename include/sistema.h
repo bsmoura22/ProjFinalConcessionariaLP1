@@ -7,59 +7,48 @@
 #include "concessionaria.h"
 #include <sstream>
 #include <algorithm>
-#include <fstream>
+#include <fstream>//manipulação de arquivo
 
 using namespace std;
 using std::string;
 
 class Sistema {
   private:
-		vector<string> dados;
-		vector<Concessionaria> concessionarias;
+		vector<string> dados; //utilizado para facilitar leitura e manipulação dos comandos da linha de terminal
+		vector<Concessionaria> concessionarias; //vetctor das concessionárias
 		
   public:
-		//ENCERRA O PROGRAMA
+		
 		string quit();
 
-		//ACESSO E EDIÇÃO DO VETOR DE CONCESSIONARIAS
+		/*Get e Set do vector de concessionaria para permitir acesso e edição*/
 		vector<Concessionaria> &getConcessionaria();
 		void setConcessionaria(Concessionaria concessionaria);
 
-		//CRIA NOVA CONCESSIONARIA
-		string create_concessionaria (const string nome);
-
-		//ADICIONA NOVOS VEICULOS
+		string create_concessionaria (const string nome); //função base criadora da concessionária
+		
+		/*Funções base de adição de veículo na concessionária*/
 		string add_car (const string nome);	
 		string add_truck (const string nome);	
 		string add_moto (const string nome);
 
-		//PESQUISA VEICULO NO VETOR
-		string search_vehicle(const string chassi);
+		string search_vehicle(const string chassi);//busca o veiculo atraves do chassi no vector com index
 
-		//REMOVE VEICULO DO VETOR
-		string remove_vehicle(const string chassi);
+		string remove_vehicle(const string chassi);//com auxilio do search, remove o veiculo do vector
 
-		//LISTA FROTA DA CONCESSIONARIA
-		string list_concessionaria(const string nome);
+		string list_concessionaria(const string nome);//listar as concessionarias
 
-		//AUMENTA VALORES DOS VEICULOS
-		string raise_price(const string nome);
+		string raise_price(const string nome);//função para aumentar o valor dos veiculos
 
-		//APRESENTA DADOS DE ARQUIVO NA TELA
-		string load_concessionaria(const string nome);
+		int search_concessionaria(const string nome); //função que pesquisa a concessionária no vector de concessionária
 
-		//SALVA DADOS DE CONCESSIONARIA EM TXT
-		string save_concessionaria(const string nome);
+		vector<string> quebra_string(string str, const char* op); //função responsável por quebrar a string recebida e alocar cada dado numa posição do vector
 
-		//PESQUISA CONCESSIONARIA EM VETOR DE CONCESSIONARIAS
-		int search_concessionaria(const string nome);
+	    void print_concessionaria(); //função que imprime todas as informações da concessionária
+        
+		string load_concessionaria(const string nome); //apresenta os dados na tela
 
-		//QUEBRA LINHA EM VETOR DE STRINGS
-		vector<string> quebra_string(string str, const char* op);
-
-		//IMPRIME CONCESSIONARIAS
-		void print_concessionaria();
-
+		string save_concessionaria(const string nome);//salva os dados em um arquivo
 };
 
 #endif

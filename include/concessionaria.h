@@ -17,7 +17,7 @@ class Concessionaria
         int estoque;
         string nome;
         string CNPJ;
-        double valor_carros;
+        double valor_auto;
         double valor_caminhoes;
         double valor_motos;
 
@@ -26,43 +26,37 @@ class Concessionaria
         vector<Motos> v_motos;
     
     public:
-        //CONSTRUTOR DA CLASSE
-        Concessionaria(string n, string c, int e);
 
-        //ACESSO E EDIÇÃO AO VETOR DE AUTOMOVEIS
+        Concessionaria(string n, string c, int e); //construtor da classe
+
+         /*Getters e Setters dos vetores de todos os tipos de veículo (automoveis, caminhoes e motos)
+         Além dos atributos da classe concessionária*/
         vector<Automoveis> &getAutomoveis();
         void setAutomoveis(Automoveis automoveis);        
 
-        //ACESSO E EDIÇÃO AO VETOR DE CAMINHOES
         vector<Caminhoes> &getCaminhoes();
         void setCaminhoes(Caminhoes caminhoes); 
 
-        //ACESSO E EDIÇÃO AO VETOR DE MOTO
         vector<Motos> &getMotos();
         void setMotos(Motos motos);   
 
-        //ACESSO E EDIÇÃO DE NOME DA CONCESSIONARIA
         string getNome();
         void setNome(string n);
 
-        //ACESSO E EDIÇÃO DE CNPJ DA CONCESSIONARIA
         string getCnpj();
         void setCnpj(string c);
 
-        //ACESSO E EDIÇÃO DO ESTOQUE DA CONCESSIONARIA
         int getEstoque();
         void setEstoque(int e);
 
-        //RETORNA O INDICE QUE ESTÁ CADA VEICULO
+         /*Atributos index para localizar os veículos nos vetores*/
         int indexCar(string chassi);
         int indexTruck(string chassi);
         int indexMoto(string chassi);
 
-        //PESQUISA VEICULOS NO VETOR
-        bool search_vehicle(string chassi);
+        bool search_vehicle(string chassi);//função de busca do veiculo com o numero de chassi
 
-        //REMOVE VEICULO DO VETOR
-        bool remove_vehicle(string chassi);
+        bool remove_vehicle(string chassi);//remoção do veiculo do vetor atraves do numero de chassi
 };
 
 #endif
