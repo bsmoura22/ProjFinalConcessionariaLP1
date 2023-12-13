@@ -8,8 +8,8 @@ Caminhoes::Caminhoes(string tipo_carga, string chassi, string marca, double prec
 {
     setTipo_Carga(tipo_carga);
     setMarca(marca);
-    setPreco(preco);
     setChassi(chassi);
+    setPreco(preco);
     setFabricacao(fabricacao);
     
 }

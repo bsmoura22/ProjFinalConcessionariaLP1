@@ -12,7 +12,7 @@ class Automoveis : public Veiculos //herança
         string tipo_de_motor; //atributo unico do carro
         
     public:
-        Automoveis(string t_m, string chassi, string marca, int preco, int fabricacao);//construtor
+        Automoveis(string t_m, string chassi, string marca, double preco, int fabricacao);//construtor
         //Acesso ao tipo de motor
         string getTipo_motor();
         void setTipo_motor(string t);

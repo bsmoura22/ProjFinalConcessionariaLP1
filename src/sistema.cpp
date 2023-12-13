@@ -245,9 +245,8 @@ string Sistema::remove_vehicle(const string chassi)
 }
 
 
-//LISTA FROTA DE CONCESSIONARIA
-//Recebe: nome da concessionaria que irá listar
-//Retorna: mensagem se a operação foi bem sucedida ou não
+/*Realiza a listagem dos veiculos da concessionária com a somatória dos valores
+de preços de cada um e a quantidade.*/
 string Sistema::list_concessionaria(const string nome)
 {
     int i = search_concessionaria(nome);
@@ -281,13 +280,11 @@ string Sistema::list_concessionaria(const string nome)
     cout << "Total de Automoveis: " << (int)getConcessionaria()[i].getAutomoveis().size() << "; Valor total: R$ " << valor_carro << endl;
     cout << "Total de Motos: " << (int)getConcessionaria()[i].getMotos().size() << "; Valor total: R$ " << valor_moto << endl;
     cout << "Total de Caminhoes: " << (int)getConcessionaria()[i].getCaminhoes().size() << "; Valor total: R$ " << valor_caminhao << endl;
-    cout << "Valor total da frota: R$ " << valor_total << endl;
+    cout << "Valor total dos veiculos na concessionária: R$ " << valor_total << endl;
     return " ";
 }
 
-//FUNCAO QUE ATUALIZA TODOS OS VALORES DE VEICULOS DA CONCESSIONARIA
-//Recebe: nome da concessionaria e porcentagem que irá aumentar
-//Retorna: mensagem se a operação foi bem sucedida ou não
+/*Função responsável por criar um aumento nos valores dos veiculos*/
 string Sistema::raise_price(const string nome)
 {
     dados = quebra_string(nome, " ");
@@ -323,9 +320,7 @@ string Sistema::raise_price(const string nome)
 
 }
 
-//CRIA O ARQUIVO .TXT DA CONCESSIONARIA SOLICITADA
-//Recebe: nome do arquivo que será criado
-//Retorna: mensagem se a operação foi bem sucedida ou não
+/*Função que com utilização do fstream e sua biblioteca cria um arquivo .txt com as informações da concessionária solicitada.*/
 string Sistema::save_concessionaria(const string nome)
 {
     dados = quebra_string(nome, ".");
@@ -342,7 +337,7 @@ string Sistema::save_concessionaria(const string nome)
 
     for (int j = 0; j < (int)getConcessionaria()[i].getAutomoveis().size(); j++)
     {
-      //IMD-SE jipe 400000 3BRBJTWPCM2563458 2018 comum
+      
       file << "car:" << getConcessionaria()[i].getNome() << " " << getConcessionaria()[i].getAutomoveis()[j].getMarca() << " " << getConcessionaria()[i].getAutomoveis()[j].getPreco()  << " " << getConcessionaria()[i].getAutomoveis()[j].getChassi() << " " << getConcessionaria()[i].getAutomoveis()[j].getFabricacao()  << " "<< getConcessionaria()[i].getAutomoveis()[j].getTipo_motor() << "\n";
     }
 
@@ -359,9 +354,7 @@ string Sistema::save_concessionaria(const string nome)
     return "save-concessionaria";
 }
 
-//FUNÇÃO QUE RECUPERA DADOS DO ARQUIVO 
-//Recebe: nome do arquivo txt
-//Retorna: mensagem se a operação foi bem sucedida ou não
+/*Função que busca o arquivo .txt e exibe retornando para o terminal*/
 string Sistema::load_concessionaria(const string nome)
 {
     string linha;

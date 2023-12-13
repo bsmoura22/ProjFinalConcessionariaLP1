@@ -7,8 +7,8 @@ using std::string;
 Motos::Motos(string mo, string chassi, string marca, double preco, int fabricacao) //Construtor da moto
 {
     setModelo(mo);
-    setChassi(chassi);
     setMarca(marca);
+    setChassi(chassi);
     setPreco(preco);
     setFabricacao(fabricacao);
     

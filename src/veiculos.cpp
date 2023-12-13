@@ -7,8 +7,8 @@ using std::string;
 Veiculos::Veiculos() //construtor sem parametros (classe "pai")
 {
     setMarca("");
-    setPreco(0);
     setChassi("");
+    setPreco(0);
     setFabricacao(0);
 }
 
@@ -22,7 +22,7 @@ void Veiculos::setMarca(string m) //função que edita a marca do veiculo
     marca = m;
 }
 
-int Veiculos::getPreco() //acesso ao preço
+double Veiculos::getPreco() //acesso ao preço
 {
     return preco;
 }

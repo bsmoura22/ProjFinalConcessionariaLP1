@@ -21,7 +21,7 @@ class Veiculos {
         string getMarca();
         void setMarca(string m);
         //Acesso ao preço do veiculo
-        int getPreco();
+        double getPreco();
         void setPreco(double p);
         //Acesso a chassi 
         string getChassi();
